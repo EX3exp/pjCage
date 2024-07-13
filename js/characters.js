@@ -127,6 +127,7 @@ function scrollCarousel(direction) {
     document.getElementById("characterCarousel").className = "character-carousel stopped";
     var classNameCarousel = "";
     if (direction == 'left') {
+        
         classNameCarousel = "character-carousel moveLeft";
         if (offset > minOffset) {
             if (offset == maxOffset) {
@@ -137,9 +138,13 @@ function scrollCarousel(direction) {
                 document.getElementById("left-button-character").style.visibility = "hidden";
             }
         }
+
+        document.getElementById('button-character-0').src = characterTxts[offset]["img"];
+        document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
     }
     else if (direction == 'right') {
         classNameCarousel = "character-carousel moveRight";
+        
         if (offset < maxOffset) {
             if (offset == minOffset) {
                 document.getElementById("left-button-character").style.visibility = "visible";
@@ -148,6 +153,9 @@ function scrollCarousel(direction) {
             if (offset == maxOffset) {
                 document.getElementById("right-button-character").style.visibility = "hidden";
             }
+
+            document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
+            document.getElementById('button-character-0').src = characterTxts[offset]["img"];
         }
         else {
             
@@ -159,11 +167,9 @@ function scrollCarousel(direction) {
     
     
     
-    document.getElementById('button-character-0').src = characterTxts[offset]["img"];
-        document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"];
-        document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
+    
+    document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"]; 
     setTimeout(() => {
-        
         document.getElementById("characterCarousel").className = classNameCarousel;
     }, 200);
 }
