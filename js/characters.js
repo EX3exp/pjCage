@@ -43,7 +43,7 @@ function mouseover_character(idx) {
         document.getElementById("word-character").className = "blink-1";
         document.getElementById(`button-character-${idx}`).className = "fadeOutButton";
         document.getElementById("title-character").className = "tracking-in-expand";
-    }, 60);
+    }, 100);
 }
 
 function mouseleave_character(idx) {
@@ -165,7 +165,7 @@ function scrollCarousel(direction) {
         document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"];
         document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
         document.getElementById("characterCarousel").className = classNameCarousel;
-    }, 23);
+    }, 200);
 }
 
 function showCharacterInfo(idx) {
