@@ -6,8 +6,6 @@ const max_idx = 10;
 const min_idx = 0;
 const maxOffset = 8;
 const minOffset = 0;
-
-
 fetch("json\\characters.json")
         .then((res) => res.text())
         .then((text) => {
@@ -15,6 +13,40 @@ fetch("json\\characters.json")
         characterTxts = JSON.parse(characterTextsData);
     })
     .catch((e) => console.error(e));
+
+function preloading (imageArray) {
+    let n = imageArray.length;
+    for (let i = 0; i < n; i++) {
+        let img = new Image();
+        img.src = imageArray[i];
+    }
+}
+
+preloading([
+    characterTxts[offset]["img"],
+    characterTxts[offset]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+1]["img"],
+    characterTxts[offset+1]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+2]["img"],
+    characterTxts[offset+2]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+3]["img"],
+    characterTxts[offset+3]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+4]["img"],
+    characterTxts[offset+4]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+5]["img"],
+    characterTxts[offset+5]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+6]["img"],
+    characterTxts[offset+6]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+7]["img"],
+    characterTxts[offset+7]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+8]["img"],
+    characterTxts[offset+8]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+9]["img"],
+    characterTxts[offset+9]["img"].split(".")[0] + "_hover.png",
+    characterTxts[offset+10]["img"],
+    characterTxts[offset+10]["img"].split(".")[0] + "_hover.png"
+])
+
 
 
 function mouseover_character(idx) {
