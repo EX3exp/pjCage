@@ -14,7 +14,6 @@ fetch("json\\world.json")
 
 
 
-
 function scrollWorld(direction) {
     document.getElementById("world-text").className = "stopped";
     document.getElementById("title-world").className = "stopped";
