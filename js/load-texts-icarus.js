@@ -6,16 +6,18 @@ var newsTxts;
   
 const max_news_idx = 1;
 const min_news_idx = 0;
-  
+document.getElementById('news-sub').innerText = "???";
+document.getElementById('news-text').innerText = "전광판을 준비하는 중…";
   fetch("json\\news.json")
           .then((res) => res.text())
           .then((text) => {
           let newsTextsData = text;
 
           newsTxts = JSON.parse(newsTextsData);
-          document.getElementById('news-sub').innerText = "―" + newsTxts[idxToShow]["title"] + " 개시 ―";
-        document.getElementById('news-text').innerText = newsTxts[idxToShow]["text"];
+          
         document.getElementById('front-img').src = newsTxts[idxToShow]["thumb"];
+        document.getElementById('news-sub').innerText = "―" + newsTxts[idxToShow]["title"] + " 개시 ―";
+        document.getElementById('news-text').innerText = newsTxts[idxToShow]["text"];
        document.getElementById('icon-yt').href = newsTxts[idxToShow]["yt"];
        document.getElementById('icon-pt').href = newsTxts[idxToShow]["pt"];
        document.getElementById('icon-x').href = newsTxts[idxToShow]["x"];
