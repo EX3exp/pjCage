@@ -20,6 +20,7 @@ document.getElementById(`button-character-2`).src = "img\\N.png";
 
 
 function mouseover_character(idx) {
+    document.getElementById(`button-character-${idx}`).src = "img/closed.png"
     console.log("mouseover_character");
     document.getElementById("characters").className = "bg-dark text-light stopped";
     document.getElementById("character-container").className = "text-light stopped";
