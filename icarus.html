@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="ko" class="h-100" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="EX3">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>ProjectCage</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="css\bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Grandiflora+One&family=Hahmlet&family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+    
+    <style>
+      body {
+        position: relative;
+        
+      }
+      header{
+        position: relative;
+        width: 100%;
+        z-index: 1000;
+        
+      }
+      section {
+        padding: 60px 0;
+      }
+      #main {
+        
+        text-align: center;
+        padding: 100px 0;
+      }
+      .floating-menu {
+        position: fixed;
+        top: 55%;
+        right: 10px;
+        z-index: 1500;
+      }
+      .floating-menu a {
+        display: block;
+        margin: 3px 0;
+        padding: 5px 15px;
+        background-color: #444b4bf3;
+        color: #051005cd;
+        text-align: left;
+        text-decoration: none;
+        font-weight: lighter;
+        font-size: 15px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .floating-player {
+        position: fixed;
+        cursor: pointer;
+        background-color: #23e9e2db;
+        margin: 3px 0;
+        padding: 5px 15px;
+        top: 5%;
+        right: 10px;
+        transform: translateY(-70%);
+        z-index: 1500;
+      }
+      .floating-player a {
+        display: block;
+        background-color: #08080853;
+        color: rgb(255, 255, 255);
+        text-align: left;
+        margin-bottom: auto;
+        text-decoration: none;
+        border-radius: 10px;
+      }
+
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      header img {
+            height: 50px;
+        }
+        .character-carousel-container {
+            position: relative;
+        }
+        .character-carousel {
+            display:flow-root;
+            overflow-x:visible;
+            scroll-behavior: smooth;
+            padding: 28px;
+        }
+        .character-carousel img {
+          
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            cursor: pointer;
+        }
+        .character-carousel img:hover {
+            opacity: 0.9;
+
+        }
+        .carousel-arrow {
+            position: absolute;
+            top: 0%;
+
+            background-color: #191918cc;
+            color: #f1f91b;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 1300;
+            block-size: 100%;
+            border-radius: 5px;
+            text-shadow: #343a40;
+            font-size: xx-large;
+
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+       
+        .carousel-arrow.left {
+            left: -10px;
+        }
+        .carousel-arrow.right {
+            right: -10px;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .character-info {
+            padding: 20px;
+        }
+
+        .character-info h2 {
+            margin-top: 0;
+        }
+
+        .character-table {
+            width: 100%;
+            margin-bottom: 1px;
+        }
+        
+        .btn {
+          user-select: text;
+          transition: all 0.3s ease-in-out;
+        }
+        
+        img{
+          user-select: none;
+        }
+
+        .tooltiptext {
+          visibility: hidden;
+            background-color: rgb(254, 255, 224);
+            color: #150202;
+            text-align: start;
+            border-radius: 5px;
+            width: 100%;
+            padding: 5px;
+            position: relative;
+            user-select: text;
+            z-index: 1700;
+            bottom: 10%; /* Position the tooltip above the button */
+            top: 0%;
+            margin-left: 10px;
+            font-family: 'IBM Plex Sans KR';
+            opacity: 0;
+            font-size: 10px;
+            transition: visibility 1s, opacity 0.5s ease-in-out;
+        }
+
+        
+    </style>
+    <link href="css\cover.css" rel="stylesheet">
+    <link href="css\animate.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-dark bg-light" >
+    
+    <div class="cover-container w-100 h-100 p-3 mx-auto flex-column">
+      <!-- Audio Player -->
+       
+    <a class ="floating-player bounce-bottom" style="padding: 20 20 20 20; border-radius: 10px; " id="play-button" onmouseover="mouseover_player()" onmouseleave="mouseleave_player()" onclick="toggleAudio()">
+      <span class="tooltiptext" id="play-button-tooltip" style="position: fixed; right: 100%; width: 100%; height: 100%;">뭔가 선율이 <br>들리지 않아?</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16">
+  <path d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z"/>
+</svg>  </a>
+      <header>
+        <a href="index.html">
+        <img class="navbar-brand fadeIn" id="logo" src="img\title.svg" style="height: 50px; cursor: pointer; user-select: none;">
+      </a>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-white fadeInDown" id="navbar">
+          <div class="container-fluid justify-content-center" id="navtogglecontainer">
+            <a class="navbar-brand navbar-white fadeIn" id="index-text-selected" style="font-family: 'Do+Hyeon'; font-weight: 600; font-size: x-large; user-select: none;">
+              Icarus
+            </a>
+            <button class="navbar-toggler fadeIn" type="button" id="navtoggler" onmouseover="mouseover('navtoggler', 'navbar-toggler fadeIn')" onmouseleave="mouseleave('navtoggler', 'navbar-toggler fadeIn')" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="true" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="main-menu">
+              <ul class="navbar-nav fadeIn" id="navbtns">
+                <li class="nav-item">
+                  <a class="nav-link active" id="btn-index-text-0" href="#" style="cursor: pointer; font-size: larger; user-select: none;">1. 이카루스</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      
+      <!-- Main Section -->
+      <main class="px-3 flex-column" >
+          <div class="card text-white bg-dark" style="min-height: 400px; min-width:300px;">
+            <img src="img\cage_icarus.png" id="front-img" class="card-img justify-content-center " style="user-select: none;" alt="ProjectCage_대문">
+            <div class="card-img-overlay " >
+              <h5 class="card-title">
+                
+            </h5>
+            <p id='news-text' class="card-text container-fluid tracking-in-expand" style="font-family: 'Hahmlet'; font-weight: 100; font-size: medium; text-shadow: none;"></p>
+            <div class="container pt-4 blink-1" style="user-select:none;">
+                <!-- Youtube -->
+                <a class="btn btn-link btn-floating btn-lg text-white m-1" id="icon-yt" 
+                onmouseover="mouseover('icon-yt', 'btn btn-link btn-floating btn-lg text-white m-1')" 
+                onmouseleave="mouseleave('icon-yt', 'btn btn-link btn-floating btn-lg text-white m-1')" 
+                href="https://youtube.com/@ex3exp?si=oEt-RVetHmZx0npw" target="_blank" role="button" data-mdb-ripple-color="dark">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                    <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+                  </svg>
+                </a>
+                <!-- Postype -->
+                <a class="btn btn-link btn-floating btn-lg text-white m-1" id="icon-pt" 
+                onmouseover="mouseover('icon-pt', 'btn btn-link btn-floating btn-lg text-white m-1')" 
+                onmouseleave="mouseleave('icon-pt', 'btn btn-link btn-floating btn-lg text-white m-1')" 
+                href="https://www.postype.com/@projectcage-official" target="_blank" role="button" data-mdb-ripple-color="dark">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="16" height="16" fill="white">
+                    <path d="M85 0h330c46.94 0 85 38.06 85 85v330c0 46.94-38.06 85-85 85H85c-46.94 0-85-38.06-85-85V85C0 38.06 38.06 0 85 0z"/>
+                    <path fill="#000" d="M295.23 118.54c55.65 0 100.77 45.12 100.77 100.78S350.88 320.1 295.23 320.1l-36.82.06v73.38H221.7V159.62h-31.98v233.92H153V159.62h-32v-41.08h174.23zm3.15 41.25H258.5v118.25h39.88c32.65 0 59.12-26.47 59.12-59.12s-26.47-59.13-59.12-59.13z"/>
+                  </svg>
+                </a>
+
+ 
+                <!-- Twitter -->
+                <a class="btn btn-link btn-floating btn-lg text-white m-1" id="icon-x" onmouseover="mouseover('icon-x', 'btn btn-link btn-floating btn-lg text-white m-1')" onmouseleave="mouseleave('icon-x', 'btn btn-link btn-floating btn-lg text-white m-1')" href="https://twitter.com/aine3_synth" target="_blank" role="button" data-mdb-ripple-color="dark">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                  </svg>
+                </a>
+            </div>
+              <div class="btn-group fadeInDownBig" role="group" aria-label="Main buttons" style="user-select: text;">
+                <a href="#world" id="main-btn-1" onmouseover="mouseover('main-btn-1', 'btn text-white border-white')" onmouseleave="mouseleave('main-btn-1', 'btn text-white border-white')" class="btn text-white border-white" style="font-size: large;">World</a>
+                <a href="#characters" id="main-btn-2" onmouseover="mouseover('main-btn-2', 'btn text-white border-white')" onmouseleave="mouseleave('main-btn-2', 'btn text-white border-white')" class="btn text-white border-white" style="font-size: large;">Characters</a>
+                <a href="#readme" id="main-btn-3" onmouseover="mouseover('main-btn-3', 'btn text-white border-white')" onmouseleave="mouseleave('main-btn-3', 'btn text-white border-white')" class="btn text-white border-white" style="font-size: large;">ReadMe</a>
+              </div>
+            </div>
+          
+      </main>
+
+      
+      <!-- Sections -->
+      <section id="world" class="bg-dark text-white">
+        <div class="container" id="world-container">
+          <div class="position-relative">
+            <button class="carousel-arrow left" id="left-button-world" style="visibility: hidden; user-select: none; background-color: #f1ebeb; color: #1f155c;"
+              onmouseover="mouseover('left-button-world', 'carousel-arrow left', 'heartbeat', 10)"
+              onclick="scrollWorld('left')"
+              onmouseleave="mouseleave('left-button-world', 'carousel-arrow left')">&#8249;</button>
+
+            <div class="container-fluid">
+                  <h2 id="title-world" class="blink-1"
+                  style="font-size: larger; text-align: start; margin-left: 35px;" >
+                    1. 마지막 핵전쟁 
+                    <span id="world-sub"
+                    style="font-size: 9pt; font-family: 'Grandiflora One'; margin-right: 25px; text-align: start;">
+                    The last nuclear war </span>
+                      <div class="" style="margin-left:70%; margin-right:25px;">
+                        </h2>
+                  <div id="worldCarousel" class="carousel slide" data-ride="carousel">
+                    <div id="world_body" style="z-index:-500; ">
+                    
+                      <table class="character-table table table scale-up-hor-left text-light"
+                        style="margin-top: 0; margin-bottom: 0; ">
+                        <tbody>
+        
+                          <tr>
+                            <th style="font-size: 13pt; font-weight:100;font-family: 'Do Hyeon'; text-align: start;"> </th>
+                            <td>
+                              <p id="world-text" class="tracking-in-expand"
+                              style="font-size: 9pt; font-family: 'IBM Plex Sans KR'; margin-left: 25px;  margin-right: 35px; text-align: start; ">
+                                &nbsp;인류사에서 마지막으로 일어난 핵전쟁. 세계 인구를 절반으로 감소시켰습니다. 
+                                이 비극에 딱히 원인은 없었습니다. 실수로 일어난 전쟁이었거든요.
+                                <br><br>
+                                &nbsp;핵 보유 강국 3개국 중 2개국이 동시에 핵폭발 스위치를 누르기까지, 채 10분도 걸리지 않았죠. 아마 많은 사람들이 섬광을 봤을 거고, 순식간에 증발했을 겁니다. 무슨 일이 일어났는지도 전혀 모르는 채로요. 
+                              
+                                설상가상으로 이상기후가 나타나 바람의 방향을 비틀자, 낙진은 온 세계로 퍼졌습니다. 그 다음은…  말씀드리지 않아도 아시겠죠?
+                                <br><br>
+                                &nbsp;하필 핵폭발이 일어난 곳은 내로라하던 세계 경제 강대국 두 곳이었습니다. 지구촌의 수많은 기업은 파산했고 빈곤층이 늘었습니다.
+                                세계의 역사는 뒤바뀌었습니다. 고작 버튼 두 개 때문에.
+                                <br><br>
+                                &nbsp;… 그 국가 지도자들을 너무 원망하지는 마세요. 그들은 자국민을 위한 최선의 선택을 했을 뿐입니다.
+                                <br><br></p>
+                            </td>
+                          </tr>
+        
+                        </tbody>
+                      </table>
+        
+        
+                    </div>
+
+                
+              </div>
+            </div>
+        <button class="carousel-arrow right" id="right-button-world" style="user-select:none; background-color: #f1ebeb; color: #1f155c;"  
+        onmouseover="mouseover('right-button-world', 'carousel-arrow right', 'heartbeat',10)" 
+        onmouseleave="mouseleave('right-button-world', 'carousel-arrow right')"  
+        onclick="scrollWorld('right')">&#8250;</button>
+        </div>
+
+        </div>
+      </section>
+
+      <section id="characters" class="bg-light text-dark">
+        <div class="container" id="character-container">
+          <h2 style="font-size: larger;" id="title-character">Characters</h2>
+          <h3 style="font-size:medium; font-family: 'IBM Plex Sans KR'; text-align: center;" id="word-character" class="blink-1"> 손가락을 가져다 대면 무언가 들릴 것 같은데…<br><br></h3>
+          <div class="position-relative">
+              <button class="carousel-arrow left" id="left-button-character" style="visibility: hidden; user-select: none;" onmouseover="mouseover('left-button-character', 'carousel-arrow left', 'heartbeat', 6)" onclick="scrollCarousel('left')"  onmouseleave="mouseleave('left-button-character', 'carousel-arrow left')" >&#8249;</button>
+              <div class="character-carousel" id="characterCarousel" style="user-select:none;">
+                  <img src="img/jose.png"  class="fadeIn" onmouseover="mouseover_character(0)" onmouseleave="mouseleave_character(0)" id="button-character-0" style="width: 30%; height: auto; user-select: none;" alt="Character 1" onclick="showCharacterInfo(0)">
+                  <img src="img/D.png" class="fadeIn" onmouseover="mouseover_character(1)" onmouseleave="mouseleave_character(1)" id="button-character-1" style="width: 30%; height: auto; user-select: none;" alt="Character 2" onclick="showCharacterInfo(1)">
+                  <img src="img/N.png" class="fadeIn" onmouseover="mouseover_character(2)" onmouseleave="mouseleave_character(2)" id="button-character-2" style="width: 30%; height: auto; user-select: none;" alt="Character 4" onclick="showCharacterInfo(2)">
+                </div>
+              <button class="carousel-arrow right" id="right-button-character" style="user-select:none;"  onmouseover="mouseover('right-button-character', 'carousel-arrow right', 'heartbeat', 6)" onmouseleave="mouseleave('right-button-character', 'carousel-arrow right')"  onclick="scrollCarousel('right')">&#8250;</button>
+          </div>
+        </div>
+    </section>
+
+      <section id="readme" class="bg-dark text-light">
+        <div class="container">
+          <h2 style="font-size: larger;">Readme (규약)</h2>
+          <h4 style="font-family:Hahmlet ; font-size: small;">―Update: 2024.07.13―</h4><hr style="width: 100%; margin-left: auto; margin-right: auto;" ></hr>
+          <hr style="width: 50%; margin-left: auto; margin-right: auto;" ></hr>
+          <h5 style="font-family:Hahmlet ;">1</h5>
+          <h5 style="font-family:Hahmlet ;"><2차창작 가이드></h5>
+          <p style="font-family: IBM Plex Sans KR; font-size: 10pt;">
+            창작에서의 수위 제한은 따로 두고 있지 않습니다. <br>다만, 공적인 장소에 게시할 경우 기본적인 예의범절을 지켜 주세요.<br>
+            (예: 고수위 2차 창작의 경우 미성년자는 열람 불가능하도록 처리)<br><br>
+            <b>- 세계관</b><br>
+            비상업 목적에 한해 자유롭게 가능. <br>기반 자작 캐릭터 등의 창작도 허용합니다. 다만 이 경우 반드시 Project Cage를 언급해 주세요.(><)
+            <br><br>
+            
+            <b>- 캐릭터</b><br>
+            비상업 목적에 한해 자유롭게 가능.
+            
+
+          </p>
+          <hr style="width: 100%; margin-left: auto; margin-right: auto;" ></hr>  
+          <hr style="width: 50%; margin-left: auto; margin-right: auto;" ></hr>
+          <h5 style="font-family:Hahmlet ;">2</h5>
+          <h5 style="font-family:Hahmlet ;"><플랫폼 별 해시태그></h5>
+          
+          <p style="font-family: IBM Plex Sans KR; font-size: 10pt;">
+            별 건 아니고 달아주시면 원작자가 좋아합니다 〜(￣▽￣〜)<br><br>
+            Youtube: #ProjectCage<br>
+            X(Twitter): #Project_Cage
+            
+            
+          </p>
+
+          <hr style="width: 100%; margin-left: auto; margin-right: auto;" ></hr>
+          <hr style="width: 50%; margin-left: auto; margin-right: auto;" ></hr>
+          <h5 style="font-family:Hahmlet ;">3</h5>
+          <h5 style="font-family:Hahmlet ;"><사이트 소스에 관하여></h5>
+          <p style="font-family: IBM Plex Sans KR; font-size: 10pt;">
+            <b>BSD 3-Clause "New" or "Revised" License</b> 아래의 오픈소스이지만, 몇몇 파일들은 <b>CC BY-NC-SA 4.0</b> 아래에 배포되고 있습니다. <br>소스 폴더 내의 LICENCE.txt를 잘 살펴봐 주세요. 
+
+          </p>
+            
+        </div>
+      </section>
+      
+
+      <footer class="text-center text-white" style="background-color: #f1f1f1;">
+        
+        <div class="text-center text-dark p-3" style="background-color: rgba(195, 195, 195, 0.2); font-family: IBM Plex Sans KR; font-size: small;">
+          <p style="font-size: 9pt;">본 작품에 등장하는 모든 국가, 단체, 인물은 허구로, 실제 국가, 단체, 인물과 아무런 관련이 없습니다.</p>
+          &copy; 2024 EX3(A2NE). All rights reserved.
+        </div>
+      </footer>
+    </div>
+
+
+    <!-- Floating Menu -->
+     <!--TODO 섹션 이동 시 ◁를 ◀로 표시-->
+
+     <div class="floating-menu bounce-bottom" style="font-size: small; line-height: 110%;">
+      <a href="#" id="button-floatmenu-0" onmouseover="mouseover('button-floatmenu-0', '')" onmouseleave="mouseleave('button-floatmenu-0', '')" onclick="selectfloatmenu(0)" style="line-height: 70%; margin-bottom: 100%; background-color: #6fcab2;">△<br><br>T<br>o<br>p</a>
+      <a href="#world" id="button-floatmenu-1" onmouseover="mouseover('button-floatmenu-1', '')" onmouseleave="mouseleave('button-floatmenu-1', '')" onclick="selectfloatmenu(1) " style="background-color: #789fe7;">◁<br>세<br>계<br>관</a>
+      <a href="#characters" id="button-floatmenu-2" onmouseover="mouseover('button-floatmenu-2', '')" onmouseleave="mouseleave('button-floatmenu-2', '')" onclick="selectfloatmenu(2)"  style="background-color: #8292c4;">◁<br>캐<br>릭<br>터</a>
+      <a href="#readme" id="button-floatmenu-3" onmouseover="mouseover('button-floatmenu-3', '')" onmouseleave="mouseleave('button-floatmenu-3', '')" onclick="selectfloatmenu(3)"  style="background-color: #3bb9cf;">◁<br>규<br>약</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js\load-texts-icarus.js"></script>
+    <script src="js\add-listeners.js"></script>
+    <script src="js/characters.js"></script>
+  
+  <script src="js/floating-menu.js"> </script>
+  <script src="js/characters.js"></script>
+  <script src="js/audio.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="js/basic-ui.js"></script>
+    <script src="js/world.js"></script>
+  </body>
+</html>

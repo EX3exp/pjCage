@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko" class="h-100" data-bs-theme="auto">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="EX3">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>ProjectCage</title>
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    
+<link href="css\bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Grandiflora+One&family=Hahmlet&family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+  
+    <style src="css\cagemain.css"></style>
+    <link href="css\cover.css" rel="stylesheet">
+    <link href="css\animate.css" rel="stylesheet">
+  </head>
+  <body class="d-flex h-100 text-center text-bg-dark">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    
+    <header>
+        <img class="navbar-brand fadeIn" id="logo" href="index.html" src="img\title.svg" style="height: 50px; cursor: pointer; user-select: none;"> 
+          <nav class="navbar sticky-top navbar-expand-lg navbar-dark fadeInDown" id="navbar">
+            <div class="container-fluid justify-content-center" id="navtogglecontainer">
+                
+                <a class="navbar-brand navbar-dark fadeIn" id="index-text-selected" style="font-family: 'Do+Hyeon'; font-weight: 600; user-select: none; font-size: x-large;">
+                  ― 1 ―
+                </a>
+
+                <button class="navbar-toggler fadeIn" type="button" id="navtoggler" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="true" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="collapse navbar-collapse justify-content-end" id="main-menu">
+                    <ul class="navbar-nav fadeIn" id="navbtns">
+                       <li class="nav-item">
+                            <a class="nav-link active" id="btn-index-text-0" onclick="changeIdxText(0)" style="cursor: pointer; font-size: larger; user-select: none;">1. 이카로스</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            </nav>
+    </header>
+  <main class="px-3" >
+    <section>
+    <div class="card text-bg-dark" style="height: 250px;">
+        
+        <img src="img\cage_icarus.png" id="front-img" class="card-img fadeInUpA" style="user-select: none;" alt="ProjectCage_대문">
+        <div class="card-img-overlay">
+          <h5 class="card-title">
+            
+        </h5>
+          <p id='index-text' class="card-text container-fluid tracking-in-expand" style="font-family: 'Hahmlet'; font-weight: 200; font-size: small;"></p>
+          <ul class="cover-container fadeInDownBig" id="bottom-menu">
+            <a href="icarus.html" class="btn border-white d-flex" style="font-size: large; justify-content: center; user-select: text;" onmouseover="mouseover('bottom-menu', '')">>>> 공식 페이지로!</a>
+          </ul>
+          
+        </div>
+        
+      </div>
+    </section>
+    
+  </main>
+
+  <div class="container my-6">
+
+    <footer class="text-center text-white" style="background-color: #f1f1f1; user-select: none; position: relative;">
+    <!-- Grid container -->
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+       
+        <!-- Youtube -->
+        <a id="icon-yt"
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://youtube.com/@ex3exp?si=oEt-RVetHmZx0npw" target="_blank"
+          onmouseover="mouseover('icon-yt', 'btn btn-link btn-floating btn-lg text-black m-1')" 
+                onmouseleave="mouseleave('icon-yt', 'btn btn-link btn-floating btn-lg text-black m-1')" 
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+            <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z"/>
+          </svg></a>
+
+        <!-- Twitter -->
+        <a id="icon-x"
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://twitter.com/aine3_synth" target="_blank"
+          role="button"
+          onmouseover="mouseover('icon-x', 'btn btn-link btn-floating btn-lg text-dark m-1')" 
+                onmouseleave="mouseleave('icon-x', 'btn btn-link btn-floating btn-lg text-dark m-1')" 
+          data-mdb-ripple-color="dark"
+          ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+          </svg></a>
+  
+        <!-- Postype -->
+        <a class="btn btn-link btn-floating btn-lg text-white m-1" id="icon-pt" 
+        onmouseover="mouseover('icon-pt', 'btn btn-link btn-floating btn-lg text-black m-1')" 
+        onmouseleave="mouseleave('icon-pt', 'btn btn-link btn-floating btn-lg text-black m-1')" 
+        href="https://www.postype.com/@projectcage-official" target="_blank" role="button" data-mdb-ripple-color="">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="16" height="16" >
+            <path d="M85 0h330c46.94 0 85 38.06 85 85v330c0 46.94-38.06 85-85 85H85c-46.94 0-85-38.06-85-85V85C0 38.06 38.06 0 85 0z"/>
+            <path fill="#fff" d="M295.23 118.54c55.65 0 100.77 45.12 100.77 100.78S350.88 320.1 295.23 320.1l-36.82.06v73.38H221.7V159.62h-31.98v233.92H153V159.62h-32v-41.08h174.23zm3.15 41.25H258.5v118.25h39.88c32.65 0 59.12-26.47 59.12-59.12s-26.47-59.13-59.12-59.13z"/>
+          </svg>
+        </a>
+
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center text-dark p-3" style="background-color: rgba(195, 195, 195, 0.2); font-family: IBM Plex Sans KR; font-size: small;">
+      <p style="font-size: 9pt;">본 작품에 등장하는 모든 국가, 단체, 인물은 허구로, 실제 국가, 단체, 인물과 아무런 관련이 없습니다.</p>
+          
+      &copy; 2024 EX3(A2NE). All rights reserved.</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+    
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js\load-texts-index.js"></script>
+<script src="js\add-listeners.js"></script>
+<script src="js\character.js"></script>
+<script src="js\basic-ui.js"></script>
+    </body>
+</html>
