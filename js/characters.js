@@ -159,11 +159,11 @@ function scrollCarousel(direction) {
     
     
     
-    
-    setTimeout(() => {
-        document.getElementById('button-character-0').src = characterTxts[offset]["img"];
+    document.getElementById('button-character-0').src = characterTxts[offset]["img"];
         document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"];
         document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
+    setTimeout(() => {
+        
         document.getElementById("characterCarousel").className = classNameCarousel;
     }, 200);
 }
