@@ -288,7 +288,7 @@ function showCharacters() {
                     </button>
                 </div><span class="tooltiptext" id="info-modal-close-tooltip" style="width: 100px; right: -300px;">상세정보 끄기</span>
                 <div class="modal-body" style="font-size: 11pt; font-family: 'IBM Plex Sans KR'; text-align: left; margin-right: 25px;">
-                ${characterTxts[info_idx]["affil-text"]}
+                ${characterTxts[info_idx]["affil-text"].replace("\n", "<br>")}
                 </div>
 
             </div>
