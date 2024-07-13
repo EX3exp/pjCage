@@ -122,6 +122,7 @@ function scrollCarouselInfo(direction) {
 }
 
 function scrollCarousel(direction) {
+    
     console.log("scrollCarousel");
     document.getElementById("characterCarousel").className = "character-carousel stopped";
     var classNameCarousel = "";
@@ -158,10 +159,11 @@ function scrollCarousel(direction) {
     
     
     
-    document.getElementById('button-character-0').src = characterTxts[offset]["img"];
-    document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"];
-    document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
+    
     setTimeout(() => {
+        document.getElementById('button-character-0').src = characterTxts[offset]["img"];
+        document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"];
+        document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
         document.getElementById("characterCarousel").className = classNameCarousel;
     }, 23);
 }
@@ -235,7 +237,7 @@ function showCharacters() {
   <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
 </svg>
 
-</button><span class="tooltiptext" id="backbtn-tooltip">캐릭터 목록으로!</span>
+</button><span class="tooltiptext" id="backbtn-tooltip">목록으로!</span>
                             </div>
                     <div id="characterCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
