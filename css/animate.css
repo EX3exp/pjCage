@@ -418,8 +418,8 @@
             animation-timing-function: ease-out;
   }
   10% {
-    -webkit-transform: scale(0.91);
-            transform: scale(0.91);
+    -webkit-transform: scale(0.97);
+            transform: scale(0.97);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
   }
@@ -442,8 +442,8 @@
             animation-timing-function: ease-out;
   }
   10% {
-    -webkit-transform: scale(0.91);
-            transform: scale(0.91);
+    -webkit-transform: scale(0.97);
+            transform: scale(0.97);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
   }
