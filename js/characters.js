@@ -20,6 +20,8 @@ document.getElementById(`button-character-2`).src = "img\\N.png";
 
 
 function mouseover_character(idx) {
+    
+
     console.log("mouseover_character");
     document.getElementById("characters").className = "bg-dark text-light stopped";
     document.getElementById("character-container").className = "text-light stopped";
@@ -42,14 +44,16 @@ function mouseover_character(idx) {
     document.getElementById("title-character").innerText = characterTxts[offset+idx]["ko"];
 
     // Handle image loading
-    const images = document.querySelectorAll('.character-carousel img');
-    images.forEach(img => {
-      img.addEventListener('load', function() {
-        this.previousElementSibling.style.display = 'none'; // Hide spinner
-        this.style.display = 'block'; // Show image
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('.spinner-container img');
+        images.forEach(img => {
+          img.addEventListener('load', function() {
+            this.previousElementSibling.style.display = 'none'; // Hide spinner
+            this.style.display = 'block'; // Show image
+          });
+          img.src = img.src; // Trigger load event in case image is cached
+        });
       });
-      img.src = img.src; // Trigger load event in case image is cached
-    });
 
     setTimeout(() => {
         document.getElementById("word-character").className = "blink-1";
@@ -72,7 +76,17 @@ function mouseleave_character(idx) {
     document.getElementById(`button-character-${idx}`).src = characterTxts[offset+idx]["img"];
     document.getElementById("title-character").innerText = "Characters";
     document.getElementById("word-character").innerText = "\"……\"\n\n";
-
+    // Handle image loading
+   document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.spinner-container img');
+    images.forEach(img => {
+      img.addEventListener('load', function() {
+        this.previousElementSibling.style.display = 'none'; // Hide spinner
+        this.style.display = 'block'; // Show image
+      });
+      img.src = img.src; // Trigger load event in case image is cached
+    });
+  });
 
     for (let i = 0; i < 3; i++) {
         if (i != idx) {
@@ -126,21 +140,23 @@ function scrollCarouselInfo(direction) {
         console.log('Invalid direction');
     }
 
-    
+    // Handle image loading
+   document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.spinner-container img');
+    images.forEach(img => {
+      img.addEventListener('load', function() {
+        this.previousElementSibling.style.display = 'none'; // Hide spinner
+        this.style.display = 'block'; // Show image
+      });
+      img.src = img.src; // Trigger load event in case image is cached
+    });
+  });
     setTimeout(() => {
         document.getElementById("character-container").className = classNameCarouselInfo;
     }, 2);
     showCharacters();
     
-   // Handle image loading
-   const images = document.querySelectorAll('.character-carousel img');
-   images.forEach(img => {
-     img.addEventListener('load', function() {
-       this.previousElementSibling.style.display = 'none'; // Hide spinner
-       this.style.display = 'block'; // Show image
-     });
-     img.src = img.src; // Trigger load event in case image is cached
-   });
+   
 }
 
 function scrollCarousel(direction) {
