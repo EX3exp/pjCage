@@ -1,4 +1,15 @@
 // 사이트 전반에서 공통적으로 사용되는 스크립트
+
+document.addEventListener("DOMContentLoaded", function() {
+    const images = document.querySelectorAll('.spinner-container img');
+    images.forEach(img => {
+      img.addEventListener('load', function() {
+        this.previousElementSibling.style.display = 'none'; // Hide spinner
+        this.style.display = 'block'; // Show image
+      });
+      img.src = img.src; // Trigger load event in case image is cached
+    });
+  });
 function mouseleave(id, classname, animation=null, duration=null) {
     console.log(id, "mouseleave");
     document.getElementById(id).className = classname + " stopped";

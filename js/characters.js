@@ -2,10 +2,10 @@ var offset = 0;
 var info_idx = 0;
 var characterTxts;
 
-const max_idx = 10;
-const min_idx = 0;
-const maxOffset = 8;
-const minOffset = 0;
+var max_idx = 10;
+var min_idx = 0;
+var maxOffset = 8;
+var minOffset = 0;
 fetch("json\\characters.json")
         .then((res) => res.text())
         .then((text) => {
@@ -20,7 +20,6 @@ document.getElementById(`button-character-2`).src = "img\\N.png";
 
 
 function mouseover_character(idx) {
-    document.getElementById(`button-character-${idx}`).src = "img/closed.png"
     console.log("mouseover_character");
     document.getElementById("characters").className = "bg-dark text-light stopped";
     document.getElementById("character-container").className = "text-light stopped";
@@ -42,11 +41,23 @@ function mouseover_character(idx) {
     document.getElementById("word-character").innerText = '"' + characterTxts[offset+idx]["word"] + '"';
     document.getElementById("title-character").innerText = characterTxts[offset+idx]["ko"];
 
+    // Handle image loading
+    const images = document.querySelectorAll('.character-carousel img');
+    images.forEach(img => {
+      img.addEventListener('load', function() {
+        this.previousElementSibling.style.display = 'none'; // Hide spinner
+        this.style.display = 'block'; // Show image
+      });
+      img.src = img.src; // Trigger load event in case image is cached
+    });
+
     setTimeout(() => {
         document.getElementById("word-character").className = "blink-1";
         document.getElementById(`button-character-${idx}`).className = "fadeOutButton";
         document.getElementById("title-character").className = "tracking-in-expand";
     }, 100);
+
+    
 }
 
 function mouseleave_character(idx) {
@@ -121,13 +132,18 @@ function scrollCarouselInfo(direction) {
     }, 2);
     showCharacters();
     
-   
+   // Handle image loading
+   const images = document.querySelectorAll('.character-carousel img');
+   images.forEach(img => {
+     img.addEventListener('load', function() {
+       this.previousElementSibling.style.display = 'none'; // Hide spinner
+       this.style.display = 'block'; // Show image
+     });
+     img.src = img.src; // Trigger load event in case image is cached
+   });
 }
 
 function scrollCarousel(direction) {
-    document.getElementById('button-character-2').src = "img/closed.png";
-    document.getElementById('button-character-1').src = "img/closed.png";
-    document.getElementById('button-character-0').src = "img/closed.png";
     console.log("scrollCarousel");
     document.getElementById("characterCarousel").className = "character-carousel stopped";
     var classNameCarousel = "";
@@ -171,11 +187,20 @@ function scrollCarousel(direction) {
     }
     
     
-    setTimeout(() => {
-        document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
-        document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"];
-        document.getElementById('button-character-0').src = characterTxts[offset]["img"];
-    }, 0.1);
+    document.getElementById('button-character-2').src = characterTxts[offset + 2]["img"];
+    document.getElementById('button-character-1').src = characterTxts[offset + 1]["img"];
+    document.getElementById('button-character-0').src = characterTxts[offset]["img"];
+
+    // Handle image loading
+    const images = document.querySelectorAll('.character-carousel img');
+    images.forEach(img => {
+      img.addEventListener('load', function() {
+        this.previousElementSibling.style.display = 'none'; // Hide spinner
+        this.style.display = 'block'; // Show image
+      });
+      img.src = img.src; // Trigger load event in case image is cached
+    });
+
     setTimeout(() => {
         document.getElementById("characterCarousel").className = classNameCarousel;
     }, 50);
@@ -193,28 +218,54 @@ function toCharacterPage() {
     console.log("toCharacterPage");
     document.getElementById("characters").className = "bg-light text-dark stopped" ;
     isShowingProfile = false;
+    var left_visible_html = "visible";
+    var right_visible_html = "visible";
+
+    if (offset == minOffset) {
+        left_visible_html = "hidden";
+    }
+    if (offset == maxOffset) {
+        right_visible_html = "hidden";
+    }
+
     document.getElementById('character-container').innerHTML = `<h2 style="font-size: larger;" id="title-character">Characters</h2>
-          <h3 style="font-size:medium; font-family: 'IBM Plex Sans KR'; text-align: center;" id="word-character" class="blink-1"> 손가락을 가져다 대면 무언가 들릴 것 같은데…<br><br></h3>
+          <h3 style="font-size:medium; font-family: 'IBM Plex Sans KR'; text-align: center;" id="word-character" class="blink-1"> 손가락을 가져다 대 볼래? 아, 이 통신구… <br>꽤 오래되서, N구에 도착한 사람들 목소리만 들릴 거야.</h3>
           <div class="position-relative">
-              <button class="carousel-arrow left" id="left-button-character" style="visibility: hidden; user-select: none;" onmouseover="mouseover('left-button-character', 'carousel-arrow left', 'heartbeat', 10)" onclick="scrollCarousel('left')"  onmouseleave="mouseleave('left-button-character', 'carousel-arrow left')" >&#8249;</button>
-              <div class="character-carousel" id="characterCarousel" style="user-select:none;">
-                  <img src="img/jose.png"  class="card-img fadeIn" onmouseover="mouseover_character(0)" onmouseleave="mouseleave_character(0)" id="button-character-0" style="width: 30%; height: auto; user-select: none;" alt="Character 1" onclick="showCharacterInfo(0)">
-                  <img src="img/D.png" class="card-img fadeIn" onmouseover="mouseover_character(1)" onmouseleave="mouseleave_character(1)" id="button-character-1" style="width: 30%; height: auto; user-select: none;" alt="Character 2" onclick="showCharacterInfo(1)">
-                  <img src="img/N.png" class="card-img fadeIn" onmouseover="mouseover_character(2)" onmouseleave="mouseleave_character(2)" id="button-character-2" style="width: 30%; height: auto; user-select: none;" alt="Character 4" onclick="showCharacterInfo(2)">
+            <button class="carousel-arrow left" id="left-button-character" style="visibility: ${left_visible_html}; user-select: none;" onmouseover="mouseover('left-button-character', 'carousel-arrow left', 'heartbeat', 6)" onclick="scrollCarousel('left')" onmouseleave="mouseleave('left-button-character', 'carousel-arrow left')">&#8249;</button>
+            
+            <div class="character-carousel" id="characterCarousel" style="user-select:none;">
+              <div class="spinner-container">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
                 </div>
-              <button class="carousel-arrow right" id="right-button-character" style="user-select:none;"  onmouseover="mouseover('right-button-character', 'carousel-arrow right', 'heartbeat', 10)" onmouseleave="mouseleave('right-button-character', 'carousel-arrow right')"  onclick="scrollCarousel('right')">&#8250;</button>
+                <img src="${characterTxts[offset]["img"]}" class="fadeIn" onmouseover="mouseover_character(0)" onmouseleave="mouseleave_character(0)" id="button-character-0" style="user-select: none;" alt="Character 1" onclick="showCharacterInfo(0)">
+              </div>
+              <div class="spinner-container">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <img src="${characterTxts[offset+1]["img"]}" class="fadeIn" onmouseover="mouseover_character(1)" onmouseleave="mouseleave_character(1)" id="button-character-1" style="user-select: none;" alt="Character 2" onclick="showCharacterInfo(1)">
+              </div>
+              <div class="spinner-container">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <img src="${characterTxts[offset+2]["img"]}" class="fadeIn" onmouseover="mouseover_character(2)" onmouseleave="mouseleave_character(2)" id="button-character-2" style="user-select: none;" alt="Character 4" onclick="showCharacterInfo(2)">
+              </div>
+            </div>
+            <button class="carousel-arrow right" id="right-button-character" style="user-select:none; visibility: ${right_visible_html};" onmouseover="mouseover('right-button-character', 'carousel-arrow right', 'heartbeat', 6)" onmouseleave="mouseleave('right-button-character', 'carousel-arrow right')" onclick="scrollCarousel('right')">&#8250;</button>
           </div>`;
 
-    let offset_t = offset;
-    offset = 0;
+          // Handle image loading
+      const images = document.querySelectorAll('.character-carousel img');
+      images.forEach(img => {
+        img.addEventListener('load', function() {
+          this.previousElementSibling.style.display = 'none'; // Hide spinner
+          this.style.display = 'block'; // Show image
+        });
+        img.src = img.src; // Trigger load event in case image is cached
+      });
 
-    
-
-    for (let i = 0; i < offset_t; i++) {
-        scrollCarousel('right');
-    }
-    
-    
 }
 
 
@@ -228,7 +279,7 @@ function showCharacters() {
     setTimeout(() => {
         document.getElementById("character-container").className = "text-dark moveRight";
     }, 2);
-        if (info_idx == min_idx) {
+    if (info_idx == min_idx) {
         left_visible_html = "hidden";
     }
     if (info_idx == max_idx) {
@@ -255,7 +306,8 @@ function showCharacters() {
                     <div id="characterCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active" >
-                                <img src="${characterTxts[info_idx]["img"]}" id="info-character-0" class="card-img"  style="margin-right:25px;" alt="Character 1">
+                            
+                                <img src="${characterTxts[info_idx]["img"]}" id="info-character-0" class="card-img"  style="margin-right:25px; display:block;" alt="Character 1">
                            
                                 </div>
                             

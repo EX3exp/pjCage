@@ -27,7 +27,7 @@
           <nav class="navbar sticky-top navbar-expand-lg navbar-dark fadeInDown" id="navbar">
             <div class="container-fluid justify-content-center" id="navtogglecontainer">
                 
-                <a class="navbar-brand navbar-dark fadeIn" id="index-text-selected" style="font-family: 'Do+Hyeon'; font-weight: 600; user-select: none; font-size: x-large;">
+                <a class="navbar-brand navbar-dark fadeIn" id="index-text-selected" style="font-family: 'Hahmlet'; font-weight: 600; user-select: none; font-size: x-large;">
                   ― 1 ―
                 </a>
 
@@ -39,7 +39,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="main-menu">
                     <ul class="navbar-nav fadeIn" id="navbtns">
                        <li class="nav-item">
-                            <a class="nav-link active" id="btn-index-text-0" onclick="changeIdxText(0)" style="cursor: pointer; font-size: larger; user-select: none;">1. 이카로스</a>
+                            <a class="nav-link active" id="btn-index-text-0" onclick="changeIdxText(0)" style="cursor: pointer; font-size: larger; user-select: none;">이카로스</a>
                         </li>
                         
                     </ul>
@@ -47,18 +47,23 @@
             </div>
             </nav>
     </header>
-  <main class="px-3" >
+  <main class="container my-6" >
     <section>
-    <div class="card text-bg-dark" style="min-height: 400px;">
+    <div class="card text-bg-dark" style="min-height: 400px; align-items: center;">
+      <div class="spinner-container">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <img src="img\cage_icarus.png" id="front-img" class="card-img fadeInUpA" style="user-select: none; height: 400px; width: fit-content;" alt="ProjectCage_대문">
+      </div>
         
-        <img src="img\cage_icarus.png" id="front-img" class="card-img fadeInUpA" style="user-select: none;" alt="ProjectCage_대문">
         <div class="card-img-overlay">
           <h5 class="card-title">
             
         </h5>
-          <p id='index-text' class="card-text container-fluid tracking-in-expand" style="font-family: 'Hahmlet'; font-weight: 200; font-size: small;"></p>
+          <p id='index-text' class="card-text container-fluid tracking-in-expand" style="font-family: 'IBM Plex Sans KR'; font-weight: 200; font-size: 55%;"></p>
           <ul class="cover-container fadeInDownBig" id="bottom-menu">
-            <a href="icarus.html" class="btn border-white d-flex" style="font-size: large; justify-content: center; user-select: text;" onmouseover="mouseover('bottom-menu', '')">>>> 공식 페이지로!</a>
+            <a href="icarus.html" class="btn border-white d-flex" style="font-size: large; justify-content: center; user-select: text;" onmouseover="mouseover('bottom-menu', '')">>>> 공식 페이지로!&nbsp;&nbsp;&nbsp;&nbsp;</a>
           </ul>
           
         </div>
@@ -77,7 +82,7 @@
       <section class="mb-4">
        
         <!-- Youtube -->
-        <a id="icon-yt"
+        <a id="icon-yt" title="공식 유튜브로"
           class="btn btn-link btn-floating btn-lg text-dark m-1"
           href="https://youtube.com/@ex3exp?si=oEt-RVetHmZx0npw" target="_blank"
           onmouseover="mouseover('icon-yt', 'btn btn-link btn-floating btn-lg text-black m-1')" 
@@ -89,7 +94,7 @@
           </svg></a>
 
         <!-- Twitter -->
-        <a id="icon-x"
+        <a id="icon-x" title="제작자 트위터로"
           class="btn btn-link btn-floating btn-lg text-dark m-1"
           href="https://x.com/aine3_synth" target="_blank"
           role="button"
@@ -101,7 +106,7 @@
           </svg></a>
   
         <!-- Postype -->
-        <a class="btn btn-link btn-floating btn-lg text-white m-1" id="icon-pt" 
+        <a class="btn btn-link btn-floating btn-lg text-white m-1" id="icon-pt" title="공식 포스타입으로"
         onmouseover="mouseover('icon-pt', 'btn btn-link btn-floating btn-lg text-black m-1')" 
         onmouseleave="mouseleave('icon-pt', 'btn btn-link btn-floating btn-lg text-black m-1')" 
         href="https://www.postype.com/@projectcage-official" target="_blank" role="button" data-mdb-ripple-color="">
@@ -117,8 +122,8 @@
     <!-- Grid container -->
   
     <!-- Copyright -->
-    <div class="text-center text-dark p-3" style="background-color: rgba(195, 195, 195, 0.2); font-family: IBM Plex Sans KR; font-size: small;">
-      <p style="font-size: 9pt; user-select: text;">본 작품에 등장하는 모든 국가, 단체, 인물은 허구로, 실제 국가, 단체, 인물과 아무런 관련이 없습니다.</p>
+    <div class="text-center text-dark p-3" style="background-color: rgba(195, 195, 195, 0.2); font-family: IBM Plex Sans KR; font-size: 8pt;">
+      <p style="font-size: 8pt; user-select: text;">본 작품에 등장하는 모든 국가, 단체, 인물은 허구로, 실제 국가, 단체, 인물과 아무런 관련이 없습니다.</p>
           
       &copy; 2024 EX3(A2NE). All rights reserved.</a>
     </div>

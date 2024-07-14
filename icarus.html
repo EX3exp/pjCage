@@ -87,7 +87,8 @@
             position: relative;
         }
         .character-carousel {
-            display:flow-root;
+            display:flex;
+            align-items: center;
             overflow-x:visible;
             scroll-behavior: smooth;
             padding: 28px;
@@ -152,6 +153,7 @@
         
         img{
           user-select: none;
+          display: none;
         }
 
         .tooltiptext {
@@ -173,6 +175,19 @@
             font-size: 10px;
             transition: visibility 1s, opacity 0.5s ease-in-out;
         }
+        .spinner-container {
+      position: relative;
+      display: inline-block;
+      
+    }
+    .spinner-border {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: rotate(45deg);
+ 
+      animation: ping 1s infinite;
+    }
 
         
     </style>
@@ -191,7 +206,13 @@
 </svg>  </a>
       <header>
         <a href="index.html">
-        <img class="navbar-brand fadeIn" id="logo" src="img\title.svg" style="height: 50px; cursor: pointer; user-select: none;">
+          <div class="spinner-container">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <img class="navbar-brand fadeIn" id="logo" src="img\title.svg" style="height: 50px; cursor: pointer; user-select: none;">
+          </div>
+        
       </a>
         <nav class="navbar sticky-top navbar-expand-lg navbar-white fadeInDown" id="navbar">
           <div class="container-fluid justify-content-center" id="navtogglecontainer">
@@ -216,8 +237,16 @@
       <!-- Main Section -->
       <main class="px-3 flex-column" >
         <div class="container" id="news-container">
-            <div id="news-card" class="position-relative card text-dark bg-light" style="min-height: 400px;">
-              <img src="img\cage_icarus.png" id="front-img" class="card-img justify-content-center " style="user-select: none;" alt="ProjectCage_NEWS">
+            <div id="news-card" class="position-relative card text-dark bg-light" style="min-height: 400px; align-items: center;">
+              <div class="spinner-container">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <img src="img\cage_icarus.png" id="front-img" class="card-img justify-content-center " style="user-select: none; height: 400px; width: fit-content;" alt="ProjectCage_NEWS">
+              </div>
+               <img class="navbar-brand fadeIn" id="logo" src="img\title.svg" style="height: 50px; cursor: pointer; user-select: none;">
+
+              
               <div class="card-img-overlay " >
                 <h5 class="card-title tracking-in-expand" style="font-size: larger; text-shadow: -1px 0px rgb(255, 255, 254), 0px 1px rgb(255, 255, 254), 1px 0px rgb(255, 255, 254), 0px -1px rgb(255, 255, 254);
 -webkit-text-stroke-color: rgb(255, 255, 255);">
@@ -355,16 +384,33 @@
       <section id="characters" class="bg-light text-dark">
         <div class="container" id="character-container">
           <h2 style="font-size: larger;" id="title-character">Characters</h2>
-          <h3 style="font-size:medium; font-family: 'IBM Plex Sans KR'; text-align: center;" id="word-character" class="blink-1"> 손가락을 가져다 대면 무언가 들릴 것 같은데…<br><br></h3>
+          <h3 style="font-size:medium; font-family: 'IBM Plex Sans KR'; text-align: center;" id="word-character" class="blink-1"> 손가락을 가져다 대 볼래? 아, 이 통신구… <br>꽤 오래되서, N구에 도착한 사람들 목소리만 들릴 거야.</h3>
           <div class="position-relative">
-              <button class="carousel-arrow left" id="left-button-character" style="visibility: hidden; user-select: none;" onmouseover="mouseover('left-button-character', 'carousel-arrow left', 'heartbeat', 6)" onclick="scrollCarousel('left')"  onmouseleave="mouseleave('left-button-character', 'carousel-arrow left')" >&#8249;</button>
-              <div class="character-carousel" id="characterCarousel" style="user-select:none;">
-                  <img src="img/closed.png"  class="fadeIn" onmouseover="mouseover_character(0)" onmouseleave="mouseleave_character(0)" id="button-character-0" style="width: 30%; height: auto; user-select: none;" alt="Character 1" onclick="showCharacterInfo(0)">
-                  <img src="img/closed.png" class="fadeIn" onmouseover="mouseover_character(1)" onmouseleave="mouseleave_character(1)" id="button-character-1" style="width: 30%; height: auto; user-select: none;" alt="Character 2" onclick="showCharacterInfo(1)">
-                  <img src="img/closed.png" class="fadeIn" onmouseover="mouseover_character(2)" onmouseleave="mouseleave_character(2)" id="button-character-2" style="width: 30%; height: auto; user-select: none;" alt="Character 4" onclick="showCharacterInfo(2)">
+            <button class="carousel-arrow left" id="left-button-character" style="visibility: hidden; user-select: none;" onmouseover="mouseover('left-button-character', 'carousel-arrow left', 'heartbeat', 6)" onclick="scrollCarousel('left')" onmouseleave="mouseleave('left-button-character', 'carousel-arrow left')">&#8249;</button>
+            
+            <div class="character-carousel" id="characterCarousel" style="user-select:none;">
+              <div class="spinner-container">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
                 </div>
-              <button class="carousel-arrow right" id="right-button-character" style="user-select:none;"  onmouseover="mouseover('right-button-character', 'carousel-arrow right', 'heartbeat', 6)" onmouseleave="mouseleave('right-button-character', 'carousel-arrow right')"  onclick="scrollCarousel('right')">&#8250;</button>
+                <img src="img/closed.png" class="fadeIn" onmouseover="mouseover_character(0)" onmouseleave="mouseleave_character(0)" id="button-character-0" style="user-select: none;" alt="Character 1" onclick="showCharacterInfo(0)">
+              </div>
+              <div class="spinner-container">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <img src="img/closed.png" class="fadeIn" onmouseover="mouseover_character(1)" onmouseleave="mouseleave_character(1)" id="button-character-1" style="user-select: none;" alt="Character 2" onclick="showCharacterInfo(1)">
+              </div>
+              <div class="spinner-container">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <img src="img/closed.png" class="fadeIn" onmouseover="mouseover_character(2)" onmouseleave="mouseleave_character(2)" id="button-character-2" style="user-select: none;" alt="Character 4" onclick="showCharacterInfo(2)">
+              </div>
+            </div>
+            <button class="carousel-arrow right" id="right-button-character" style="user-select:none;" onmouseover="mouseover('right-button-character', 'carousel-arrow right', 'heartbeat', 6)" onmouseleave="mouseleave('right-button-character', 'carousel-arrow right')" onclick="scrollCarousel('right')">&#8250;</button>
           </div>
+          
         </div>
     </section>
 
@@ -423,8 +469,8 @@
 
       <footer class="text-center text-white" style="background-color: #f1f1f1;">
         
-        <div class="text-center text-dark p-3" style="background-color: rgba(195, 195, 195, 0.2); font-family: IBM Plex Sans KR; font-size: small;">
-          <p style="font-size: 9pt;">본 작품에 등장하는 모든 국가, 단체, 인물은 허구로, 실제 국가, 단체, 인물과 아무런 관련이 없습니다.</p>
+        <div class="text-center text-dark p-3" style="background-color: rgba(195, 195, 195, 0.2); font-family: IBM Plex Sans KR; font-size: 8pt;">
+          <p style="font-size: 8pt;">본 작품에 등장하는 모든 국가, 단체, 인물은 허구로, 실제 국가, 단체, 인물과 아무런 관련이 없습니다.</p>
           &copy; 2024 EX3(A2NE). All rights reserved.
         </div>
       </footer>
