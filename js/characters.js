@@ -20,7 +20,7 @@ document.getElementById(`button-character-2`).src = "img\\N.png";
 
 
 function mouseover_character(idx) {
-    
+    document.getElementById(`button-character-${idx}`).src = "img/closed.png"
 
     console.log("mouseover_character");
     document.getElementById("characters").className = "bg-dark text-light stopped";
@@ -164,7 +164,7 @@ function scrollCarousel(direction) {
     document.getElementById("characterCarousel").className = "character-carousel stopped";
     var classNameCarousel = "";
     if (direction == 'left') {
-        
+        document.getElementById(`button-character-0`).src = "img/closed.png"
         classNameCarousel = "character-carousel moveLeft";
         if (offset > minOffset) {
             if (offset == maxOffset) {
@@ -180,7 +180,7 @@ function scrollCarousel(direction) {
     }
     else if (direction == 'right') {
         classNameCarousel = "character-carousel moveRight";
-        
+        document.getElementById(`button-character-2`).src = "img/closed.png"
         if (offset < maxOffset) {
             if (offset == minOffset) {
                 document.getElementById("left-button-character").style.visibility = "visible";
@@ -208,15 +208,16 @@ function scrollCarousel(direction) {
     document.getElementById('button-character-0').src = characterTxts[offset]["img"];
 
     // Handle image loading
-    const images = document.querySelectorAll('.character-carousel img');
-    images.forEach(img => {
-      img.addEventListener('load', function() {
-        this.previousElementSibling.style.display = 'none'; // Hide spinner
-        this.style.display = 'block'; // Show image
+    document.addEventListener("DOMContentLoaded", function() {
+        const images = document.querySelectorAll('.spinner-container img');
+        images.forEach(img => {
+          img.addEventListener('load', function() {
+            this.previousElementSibling.style.display = 'none'; // Hide spinner
+            this.style.display = 'block'; // Show image
+          });
+          img.src = img.src; // Trigger load event in case image is cached
+        });
       });
-      img.src = img.src; // Trigger load event in case image is cached
-    });
-
     setTimeout(() => {
         document.getElementById("characterCarousel").className = classNameCarousel;
     }, 50);
