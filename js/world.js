@@ -55,7 +55,7 @@ function scrollWorld(direction) {
 
     
     setTimeout(() => {
-        document.getElementById("world-container").className = classNameWorld;
+        document.getElementById("world-inner").className = classNameWorld;
     }, 2);
 
     document.getElementById("title-world").innerHTML = 

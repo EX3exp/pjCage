@@ -312,7 +312,7 @@ function showCharacters() {
                 <div class="col-md-4" >
                  <div class="col-md-4">
 
-                                <button type="button" id="backbtn" class="btn bounce-bottom" style="font-size:larger; background-color: #23e9c5db; color: #051005cd; " onclick="toCharacterPage()" onmouseover="mouseover('backbtn', 'btn')" onmouseleave="mouseleave('backbtn', 'btn')"> 
+                                <button type="button" id="backbtn" class="btn bounce-bottom" style="font-size:larger; background-color: #23e9c5db; color: #051005cd; margin-left:45px; " onclick="toCharacterPage()" onmouseover="mouseover('backbtn', 'btn')" onmouseleave="mouseleave('backbtn', 'btn')"> 
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
   <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
@@ -324,7 +324,7 @@ function showCharacters() {
                         <div class="carousel-inner">
                             <div class="carousel-item active" >
                             
-                                <img src="${characterTxts[info_idx]["img"]}" id="info-character-0" class="card-img"  style="margin-right:25px; display:block;" alt="Character 1">
+                                <img src="${characterTxts[info_idx]["img"]}" id="info-character-0" class="card-img"  style="margin-right:25px; display:block; margin-left:15px;" alt="Character">
                            
                                 </div>
                             
@@ -389,7 +389,7 @@ function toCharacterProfile() {
     var affil_html;
     if (characterTxts[info_idx]["affil"] != "미해당") {
         affil_html = `<button type="button" id="affil-btn" class="btn btn-light blink-1" data-toggle="modal" data-target="#exampleModal" style="font-size: 11pt; text-align: center; margin-right: 25px;" onmouseover="mouseover('affil-btn', 'btn btn-light')" onmouseleave="mouseleave('affil-btn', 'btn btn-light')">${characterTxts[info_idx]["affil"]}</button>
-                                <span class="tooltiptext" id="affil-btn-tooltip">상세정보</span>
+                                <span class="tooltiptext" id="affil-btn-tooltip" style="left: -30px;">상세정보</span>
                                 </span>`;
         }
     else {

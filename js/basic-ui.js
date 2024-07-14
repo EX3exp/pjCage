@@ -25,7 +25,7 @@ function mouseleave(id, classname, animation=null, duration=null) {
     }
 }
 
-function mouseover(id, classname, animation="jello-horizontal", duration=10){
+function mouseover(id, classname, animation="jello-horizontal", duration=60){
     console.log(id, "mouseover");
     document.getElementById(id).className = classname + " stopped";
     setTimeout(() => {
