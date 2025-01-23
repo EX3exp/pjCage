@@ -246,7 +246,7 @@ function toCharacterPage() {
     }
 
     document.getElementById('character-container').innerHTML = `<h2 style="font-size: larger;" id="title-character">Characters</h2>
-          <h3 style="font-size:medium; font-family: 'IBM Plex Sans KR'; text-align: center;" id="word-character" class="blink-1"> 손가락을 가져다 대 볼래? 아, 이 통신구… <br>꽤 낡아서, N구에 도착한 사람들 목소리만 들릴 거야.</h3>
+          <h3 style="font-size:medium; font-family: 'IBM Plex Sans KR'; text-align: center;" id="word-character" class="blink-1"> 손가락을 가져다 대 볼래? 아직은 아무것도 안 들릴 테지만…….</h3>
           <div class="position-relative">
             <button class="carousel-arrow left" id="left-button-character" style="visibility: ${left_visible_html}; user-select: none;" onmouseover="mouseover('left-button-character', 'carousel-arrow left', 'heartbeat', 6)" onclick="scrollCarousel('left')" onmouseleave="mouseleave('left-button-character', 'carousel-arrow left')">&#8249;</button>
             

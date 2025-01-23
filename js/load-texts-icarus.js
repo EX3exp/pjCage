@@ -1,5 +1,5 @@
 
-var idxToShow = 1; // 첫 로드 시 보여줄 뉴스 인덱스
+var idxToShow = 0; // 첫 로드 시 보여줄 뉴스 인덱스
 
 var news_idx = idxToShow;
 var newsTxts;
@@ -16,7 +16,7 @@ document.getElementById('news-text').innerText = "전광판을 준비하는 중�
           newsTxts = JSON.parse(newsTextsData);
           
         document.getElementById('front-img').src = newsTxts[idxToShow]["thumb"];
-        document.getElementById('news-sub').innerText = "―" + newsTxts[idxToShow]["title"] + " 개시 ―";
+        document.getElementById('news-sub').innerText = "―" + newsTxts[idxToShow]["title"] + "―";
         document.getElementById('news-text').innerText = newsTxts[idxToShow]["text"];
        document.getElementById('icon-yt').href = newsTxts[idxToShow]["yt"];
        document.getElementById('icon-pt').href = newsTxts[idxToShow]["pt"];

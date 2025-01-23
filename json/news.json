@@ -1,18 +1,10 @@
 [
     {
-        "title": "프롤로그 Cage",
-        "text": "N구 대피소에 어서 오세요\n",
-        "yt": "https://youtu.be/HMwkjbGPfg4",
-        "pt": "https://www.postype.com/@projectcage-official/post/16782402",
+        "title": "악곡프로젝트 종료 및 게임화 결정 안내",
+        "text": "악곡 프로젝트의 마지막 곡으로 Saeculum의 리메이크 버전이 투고되었습니다.",
+        "yt": "https://youtu.be/B97UZdLq0DY",
+        "pt" : "https://posty.pe/4oxdsr",
         "x" : "https://x.com/aine3_synth",
-        "thumb" : "img\\cage_thumb.png"
-    },
-    {
-        "title": "1화 Saeculum",
-        "text": "머릿속에는 항상 이야기가 흘러가고 있다. \n나는 가만히 지켜보곤 한다.",
-        "yt": "https://youtu.be/Ix7XURvRnDo",
-        "pt" : "https://posty.pe/o88rqw",
-        "x" : "https://x.com/aine3_synth",
-        "thumb" : "img\\saeculum_thumb.png"
+        "thumb" : "img\\re_saeculum.png"
     }
 ]
